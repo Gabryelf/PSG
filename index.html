@@ -1,102 +1,44 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon Hunter - Охотник за покемонами</title>
+    <title>Горизонтальный скролл сайт</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
-    <!-- Верхний тулбар с прогрессом -->
-    <div class="top-toolbar">
-        <div class="toolbar-content">
-            <div class="pokeball-counter">
-                <div class="pokeball-icon">
-                    <i class="fas fa-baseball-ball"></i>
-                    <span class="pokeball-count" id="pokeball-count">10</span>
-                </div>
-                <div class="pokeball-progress">
-                    <div class="progress-bar" id="pokeball-progress"></div>
-                </div>
-            </div>
-            
-            <div class="catch-progress">
-                <h3>Поймано покемонов</h3>
-                <div class="progress-container">
-                    <div class="progress-fill" id="catch-progress-fill"></div>
-                    <span class="progress-text" id="catch-progress-text">0/150</span>
-                </div>
-            </div>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-label">Всего поймано:</span>
-                    <span class="stat-value" id="total-caught">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Уникальных:</span>
-                    <span class="stat-value" id="unique-caught">0</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Верхняя вращающаяся секция -->
     <div class="rotating-section top-rotator">
         <img src="https://i.pinimg.com/originals/46/74/30/467430c7966046066e2db60356547d86.png" alt="Rotating Icon" class="rotating-image">
-        <div class="rotating-text">Pokémon Hunter - Gotta Catch 'Em All!</div>
     </div>
 
     <!-- Основной контейнер для горизонтального скролла -->
     <main class="horizontal-scroll">
         <section class="slide slide-1" data-bg="https://i.pinimg.com/originals/34/d6/c4/34d6c4e85786971335655ecbaffb5284.png">
-            <div class="slide-content">
-                <h1>Добро пожаловать в мир покемонов!</h1>
-                <p>Используйте покеболы для ловли покемонов</p>
-            </div>
+            <h1></h1>
         </section>
         <section class="slide slide-2" data-bg="https://avatars.mds.yandex.net/i?id=0c2be3e3ed5c61e24a0649c5c86d4776_l-3183039-images-thumbs&n=13">
-            <div class="slide-content">
-                <h1>Собирайте коллекцию</h1>
-                <p>Каждый покемон уникален и имеет свою стихию</p>
-            </div>
+            <h1></h1>
         </section>
         <section class="slide slide-3" data-bg="https://avatars.mds.yandex.net/i?id=ee4ae366b338eebd6457d9a214e1757d_l-8437019-images-thumbs&ref=rim&n=13&w=1280&h=720">
-            <div class="slide-content">
-                <h1>Получайте достижения</h1>
-                <p>Выполняйте задания и получайте значки</p>
-            </div>
+            <h1></h1>
         </section>
         <section class="slide slide-4" data-bg="https://i.pinimg.com/originals/a1/07/53/a10753dffd33071ac5b2e7596d350b5e.png">
-            <div class="slide-content">
-                <h1>Используйте камни эволюции</h1>
-                <p>Собирайте редкие камни для эволюции покемонов</p>
-            </div>
+            <h1></h1>
         </section>
     </main>
 
     <!-- Нижняя вращающаяся секция -->
     <div class="rotating-section bottom-rotator">
-        <div class="rotating-text">Используйте боковые панели для дополнительных функций</div>
         <img src="https://bumper-stickers.ru/42742-thickbox_default/nadpis-pokemon.jpg" alt="Rotating Icon" class="rotating-image">
     </div>
 
     <!-- Плавающие панели -->
     <div class="side-panel right-panel">
         <div class="panel-content">
-            <h3><i class="fas fa-book"></i> Коллекция</h3>
-            <button class="panel-btn" id="btn-collection">
-                <i class="fas fa-dragon"></i> Мои покемоны
-            </button>
-            <button class="panel-btn" id="btn-achievements">
-                <i class="fas fa-trophy"></i> Достижения
-            </button>
-            <button class="panel-btn" id="btn-inventory">
-                <i class="fas fa-gem"></i> Инвентарь
-            </button>
+            <button class="panel-btn">Кнопка 1</button>
+            <button class="panel-btn">Кнопка 2</button>
+            <button class="panel-btn">Кнопка 3</button>
             <label class="checkbox-container">
                 Закрепить
                 <input type="checkbox" id="pin-right">
@@ -107,16 +49,9 @@
 
     <div class="side-panel left-panel">
         <div class="panel-content">
-            <h3><i class="fas fa-tools"></i> Инструменты</h3>
-            <button class="panel-btn" id="btn-screenshot">
-                <i class="fas fa-camera"></i> Скриншот
-            </button>
-            <button class="panel-btn" id="btn-resource">
-                <i class="fas fa-external-link-alt"></i> Ресурсы
-            </button>
-            <button class="panel-btn" id="btn-share">
-                <i class="fas fa-share-alt"></i> Поделиться
-            </button>
+            <button class="panel-btn">Кнопка A</button>
+            <button class="panel-btn">Кнопка B</button>
+            <button class="panel-btn">Кнопка C</button>
             <label class="checkbox-container">
                 Закрепить
                 <input type="checkbox" id="pin-left">
@@ -125,124 +60,11 @@
         </div>
     </div>
 
-    <!-- Модальные окна -->
-    <div id="collection-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-dragon"></i> Моя коллекция покемонов</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="pokemon-grid" class="pokemon-grid">
-                    <!-- Покемоны будут добавляться динамически -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="achievements-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-trophy"></i> Мои достижения</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="achievements-grid" class="achievements-grid">
-                    <!-- Достижения будут добавляться динамически -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="inventory-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-gem"></i> Мой инвентарь</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div id="inventory-grid" class="inventory-grid">
-                    <!-- Камни будут добавляться динамически -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Окно ресурсов -->
-    <div id="resource-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-external-link-alt"></i> Полезные ресурсы</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="resource-list">
-                    <a href="https://www.pokemon.com" target="_blank" class="resource-item">
-                        <i class="fas fa-globe"></i>
-                        <div>
-                            <h3>Официальный сайт Pokémon</h3>
-                            <p>Новости, игры и информация о покемонах</p>
-                        </div>
-                    </a>
-                    <a href="https://pokemondb.net" target="_blank" class="resource-item">
-                        <i class="fas fa-database"></i>
-                        <div>
-                            <h3>Pokémon Database</h3>
-                            <p>Полная база данных всех покемонов</p>
-                        </div>
-                    </a>
-                    <a href="https://bulbapedia.bulbagarden.net" target="_blank" class="resource-item">
-                        <i class="fas fa-book-open"></i>
-                        <div>
-                            <h3>Bulbapedia</h3>
-                            <p>Энциклопедия покемонов на всех языках</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Окно шаринга -->
-    <div id="share-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-share-alt"></i> Поделиться</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="share-buttons">
-                    <button class="share-btn facebook">
-                        <i class="fab fa-facebook-f"></i> Facebook
-                    </button>
-                    <button class="share-btn twitter">
-                        <i class="fab fa-twitter"></i> Twitter
-                    </button>
-                    <button class="share-btn vk">
-                        <i class="fab fa-vk"></i> ВКонтакте
-                    </button>
-                    <button class="share-btn telegram">
-                        <i class="fab fa-telegram-plane"></i> Telegram
-                    </button>
-                </div>
-                <div class="share-link">
-                    <input type="text" value="https://pokemon-hunter-game.com" readonly id="share-link-input">
-                    <button class="copy-btn" id="copy-link-btn">
-                        <i class="fas fa-copy"></i> Копировать
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Контейнер для летающих изображений -->
     <div id="floating-images-container"></div>
 
     <!-- Элементы для эффектов -->
     <div id="effects-container"></div>
-
-    <!-- Контейнер для анимации покебола -->
-    <div id="pokeball-animation-container"></div>
 
     <script src="script.js"></script>
 </body>
