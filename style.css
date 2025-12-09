@@ -5,10 +5,206 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     overflow: hidden;
     height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+}
+
+/* Верхний тулбар */
+.top-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(90deg, rgba(25, 25, 45, 0.95) 0%, rgba(30, 30, 60, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 2px solid #4a4a8a;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.toolbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pokeball-counter {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pokeball-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff0000 50%, #ffffff 50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.pokeball-icon i {
+    font-size: 18px;
+    color: #000;
+    z-index: 1;
+}
+
+.pokeball-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
     background: #000;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+
+.pokeball-count {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: #ffcc00;
+    color: #000;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border: 2px solid #000;
+}
+
+.pokeball-progress {
+    width: 150px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+    width: 0%;
+    border-radius: 5px;
+    animation: progressPulse 2s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.catch-progress {
+    text-align: center;
+}
+
+.catch-progress h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #aaccff;
+    font-weight: 500;
+}
+
+.progress-container {
+    position: relative;
+    width: 300px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff3366, #ff6633);
+    width: 0%;
+    border-radius: 12px;
+    transition: width 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 120px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-label {
+    display: block;
+    font-size: 12px;
+    color: #aaccff;
+    margin-bottom: 3px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffcc00;
+    display: block;
 }
 
 /* Вращающиеся секции */
@@ -16,28 +212,39 @@ body {
     position: fixed;
     left: 0;
     width: 100%;
-    height: 12.5vh; /* 1/8 экрана */
+    height: 12.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.85);
     z-index: 10;
+    border-bottom: 2px solid rgba(74, 74, 138, 0.3);
+    padding: 0 20px;
 }
 
 .top-rotator {
-    top: 0;
-    border-bottom: 2px solid #333;
+    top: 70px;
 }
 
 .bottom-rotator {
     bottom: 0;
-    border-top: 2px solid #333;
+    border-top: 2px solid rgba(74, 74, 138, 0.3);
+    border-bottom: none;
 }
 
 .rotating-image {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     animation: rotate 4s linear infinite;
+    margin: 0 15px;
+}
+
+.rotating-text {
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    color: #ffcc00;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+    letter-spacing: 1px;
 }
 
 @keyframes rotate {
@@ -48,10 +255,10 @@ body {
 /* Горизонтальный скролл */
 .horizontal-scroll {
     display: flex;
-    width: 400vw; /* 4 слайда по 100vw */
-    height: 75vh; /* Оставшееся пространство между вращателями */
+    width: 400vw;
+    height: 75vh;
     position: absolute;
-    top: 12.5vh;
+    top: calc(70px + 12.5vh);
     left: 0;
     transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -65,8 +272,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: white;
-    font-size: 3rem;
     position: relative;
 }
 
@@ -77,13 +282,30 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.8) 100%);
+}
+
+.slide-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px;
+    max-width: 800px;
 }
 
 .slide h1 {
-    position: relative;
-    z-index: 1;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ff3366, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 51, 102, 0.3);
+}
+
+.slide p {
+    font-size: 1.5rem;
+    color: #aaccff;
+    line-height: 1.6;
 }
 
 /* Боковые панели */
@@ -91,14 +313,16 @@ body {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: 200px;
-    background: rgba(255, 255, 255, 0.95);
+    width: 220px;
+    background: linear-gradient(135deg, rgba(40, 40, 70, 0.95) 0%, rgba(50, 50, 90, 0.95) 100%);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 100;
     opacity: 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .right-panel {
@@ -116,24 +340,43 @@ body {
     opacity: 1;
 }
 
-.panel-content {
+.panel-content h3 {
+    color: #ffcc00;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+    padding-bottom: 10px;
 }
 
 .panel-btn {
-    padding: 10px;
-    background: #4CAF50;
+    width: 100%;
+    padding: 12px 15px;
+    background: linear-gradient(135deg, #4a4a8a, #3a3a7a);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .panel-btn:hover {
-    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #5a5a9a, #4a4a8a);
+}
+
+.panel-btn:active {
+    transform: translateY(0);
 }
 
 /* Кастомный чекбокс */
@@ -142,7 +385,9 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: 14px;
-    color: #333;
+    color: #aaccff;
+    margin-top: 15px;
+    justify-content: space-between;
 }
 
 .checkbox-container input {
@@ -150,25 +395,26 @@ body {
 }
 
 .checkmark {
-    width: 20px;
-    height: 20px;
-    background: #ddd;
-    border-radius: 3px;
-    margin-left: 10px;
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
     position: relative;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .checkbox-container input:checked + .checkmark {
     background: #4CAF50;
+    border-color: #4CAF50;
 }
 
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
-    left: 6px;
-    top: 2px;
+    left: 7px;
+    top: 3px;
     width: 5px;
     height: 10px;
     border: solid white;
@@ -184,12 +430,453 @@ body {
 .floating-image {
     position: absolute;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s, filter 0.3s;
     z-index: 50;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+    border-radius: 10px;
 }
 
 .floating-image:hover {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(255, 204, 0, 0.7));
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #2a2a4a 0%, #1a1a3a 100%);
+    margin: 50px auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 85vh;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(90deg, #3a3a6a 0%, #4a4a8a 100%);
+    padding: 20px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+}
+
+.close-modal {
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff6666;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #ff3366;
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: calc(85vh - 80px);
+    overflow-y: auto;
+}
+
+/* Сетка покемонов */
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.pokemon-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-color: #ffcc00;
+}
+
+.pokemon-card.caught {
+    border-color: #4CAF50;
+}
+
+.pokemon-card .pokemon-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    filter: brightness(0);
+    transition: filter 0.3s ease;
+}
+
+.pokemon-card.caught .pokemon-image {
+    filter: brightness(1);
+}
+
+.pokemon-card .pokemon-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.pokemon-name {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.pokemon-type {
+    font-size: 12px;
+    color: #aaccff;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-top: 5px;
+}
+
+.pokemon-type.fire { background: #ff6b6b; color: white; }
+.pokemon-type.water { background: #4d96ff; color: white; }
+.pokemon-type.grass { background: #6bcf7f; color: white; }
+.pokemon-type.electric { background: #ffd93d; color: #000; }
+.pokemon-type.psychic { background: #a683e3; color: white; }
+
+/* Сетка достижений */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.achievement-card.earned {
+    border-color: #ffcc00;
+    background: rgba(255, 204, 0, 0.05);
+}
+
+.achievement-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.achievement-card.earned .achievement-icon {
+    color: #ffcc00;
+}
+
+.achievement-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.achievement-desc {
+    font-size: 14px;
+    color: #aaccff;
+    margin-bottom: 10px;
+}
+
+.achievement-progress {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.achievement-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00ccff);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Сетка инвентаря */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.stone-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stone-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stone-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.stone-name {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.stone-count {
+    font-size: 24px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* Стили для ресурсов */
+.resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.resource-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #4a4a8a;
+    transform: translateX(5px);
+}
+
+.resource-item i {
+    font-size: 30px;
+    color: #4d96ff;
+    min-width: 40px;
+}
+
+.resource-item h3 {
+    margin-bottom: 5px;
+    color: #ffcc00;
+}
+
+.resource-item p {
+    color: #aaccff;
+    font-size: 14px;
+}
+
+/* Стили для шаринга */
+.share-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.share-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.share-btn.facebook { background: #3b5998; }
+.share-btn.twitter { background: #1da1f2; }
+.share-btn.vk { background: #4a76a8; }
+.share-btn.telegram { background: #0088cc; }
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.share-link {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.share-link input {
+    flex: 1;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.copy-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #4a4a8a, #3a3a7a);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(135deg, #5a5a9a, #4a4a8a);
+}
+
+/* Анимация покебола */
+.pokeball-throw {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff0000 50%, #ffffff 50%);
+    border-radius: 50%;
+    z-index: 1000;
+    pointer-events: none;
+    animation: throwBall 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.pokeball-throw::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border: 4px solid white;
+    border-radius: 50%;
+}
+
+/* Уведомления о достижениях */
+.achievement-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    color: #000;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+    transform: translateX(120%);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    min-width: 300px;
+}
+
+.achievement-notification.show {
+    transform: translateX(0);
+}
+
+.achievement-notification-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.achievement-notification .achievement-icon {
+    font-size: 30px;
+}
+
+.achievement-notification h4 {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.achievement-notification p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+@keyframes throwBall {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* Эффекты */
@@ -226,4 +913,61 @@ body {
     height: 10px;
     border-radius: 50%;
     pointer-events: none;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .toolbar-content {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+        height: auto;
+    }
+    
+    .top-toolbar {
+        height: auto;
+        padding: 10px;
+    }
+    
+    .stats {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .progress-container {
+        width: 250px;
+    }
+    
+    .pokemon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide h1 {
+        font-size: 2.5rem;
+    }
+    
+    .slide p {
+        font-size: 1.2rem;
+    }
+    
+    .side-panel {
+        width: 180px;
+    }
+    
+    .share-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .pokemon-grid,
+    .achievements-grid,
+    .inventory-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
 }
