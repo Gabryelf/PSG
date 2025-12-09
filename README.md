@@ -44,7 +44,7 @@
 
 ### Установка
 1. **Клонируйте репозиторий:**
-```bash
+
 git clone https://github.com/yourusername/pokemon-collector.git
 cd pokemon-collector
 Откройте в браузере:
